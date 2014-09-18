@@ -9,6 +9,7 @@
 4. [Usage - Configuration options and additional functionality](#usage)
     * [Enable Monit Dashboard](#enable-monit-dashboard)
     * [Add a check](#add-a-check)
+    * [Remove a check](#remove-a-check)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Contributors](#contributors)
 
@@ -40,6 +41,7 @@ class { 'monit':
   httpd_password => 'CHANGE_ME',
 }
 ```
+
 ### Add a check
 
 ```puppet
@@ -47,6 +49,15 @@ monit::check { 'ntp':
   source => "puppet:///modules/${module_name}/ntp",
 }
 ```
+
+### Remove a check
+
+```puppet
+monit::check { 'ntp':
+  ensure => absent,
+}
+```
+
 ## Limitations
 
 Debian family OSes are officially supported. Tested and built on Debian.
